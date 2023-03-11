@@ -131,3 +131,6 @@ dist
 .pnp.*
 *package-lock.json
 .DS_Store
+backend/data/**/*.json
+backend/data/**/*.csv
+
