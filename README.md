@@ -1,7 +1,7 @@
 # SND Diff tool
-Tool to get diff between existing tool and source of truth of sanction list.
+Tool to get missing entity/person from pelican list and source of truth of sanction list published by US,UK,UN,EU.
 
-## Data Source
+### Data Source
 | Website URL                                                                                                                             | XML URL                                                                                                                             |
 |-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | [UK](https://www.gov.uk/government/publications/the-uk-sanctions-list)                                                                  | [UK](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1141733/UK_Sanctions_List.xml) |
