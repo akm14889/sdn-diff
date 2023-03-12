@@ -24,11 +24,6 @@ function stopPrintWait() {
     process.stdout.write('\r\r');
 }
 
-let oPelicanData;
-(async function() {
-    oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
-})();
-
 export async function missingPersonInUKList() {
     console.log("|    Getting missing entity/person from UK list   \u{1F973} \u{1F973}                      |");
     printWait();
@@ -36,7 +31,7 @@ export async function missingPersonInUKList() {
     oUKSDNData = JSON.parse(oUKSDNData);
     const diffData = [];
     oUKSDNData = oUKSDNData && oUKSDNData.Designations && oUKSDNData.Designations.Designation;
-
+    let oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
     for (const oSanctionedPerson of oUKSDNData) {
         let personMissing = true;
         if (oSanctionedPerson.Names.Name &&
@@ -95,6 +90,7 @@ export async function missingPersonInUsList() {
     console.log("|    Getting missing entity/person from US list   \u{1F973} \u{1F973}                      |");
     printWait();
     let oUSSDNData = await fs.readFile(ENV.DATA_SOURCE.US.FILE, "utf8");
+    let oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
     oUSSDNData = JSON.parse(oUSSDNData);
     const diffData = [];
     oUSSDNData = oUSSDNData &&
@@ -155,6 +151,7 @@ export async function missingPersonInUsList() {
 export async function missingPersonInUnList() {
     console.log("|    Getting missing entity/person from UN list   \u{1F973} \u{1F973}                      |");
     printWait();
+    let oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
     let oUNSDNData = await fs.readFile(ENV.DATA_SOURCE.UN.FILE, "utf8");
     oUNSDNData = JSON.parse(oUNSDNData);
     const diffData = [];
@@ -203,6 +200,7 @@ export async function missingPersonInUnList() {
 export async  function missingPersonInEuList() {
     console.log("|    Getting missing entity/person from EU list   \u{1F973} \u{1F973}                      |");
     printWait();
+    let oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
     let oEUSDNData = await fs.readFile(ENV.DATA_SOURCE.EU.FILE, "utf8");
     oEUSDNData = JSON.parse(oEUSDNData);
     const diffData = [];
