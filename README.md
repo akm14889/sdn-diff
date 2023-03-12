@@ -13,8 +13,9 @@ Tool to get missing entity/person from pelican list and which are present in san
 ### Dependencies
 1. Install NodeJS on machine, Windows machine : [Download](https://nodejs.org/dist/v18.15.0/node-v18.15.0-x86.msi) and install.
 2. Download this package
-3. Before Running this program make sure that URL to download XML of data from above site is current, You can update this list by changing content in this file for [UK](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L4), [US](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L9), [UN](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L14), [EU](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L20)
-4. Install Program dependencies 
+3. Before Running this program make sure that URL to download XML of data from above site is upto date, You can update this list by changing content in this file for [UK](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L4), [US](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L9), [UN](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L14), [EU](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L20)
+4. Make sure to replace this [file](https://github.com/akm14889/sdn-diff/blob/main/backend/data/currentPelicanList/list.csv), with the latest exported pelican data, please name that file as `list.csv` 
+5. Install Program dependencies 
 ```
 cd backend
 ```
