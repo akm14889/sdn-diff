@@ -15,14 +15,29 @@ Tool to get missing entity/person from pelican list and which are present in san
 2. Download this package
 3. Before Running this program make sure that URL to download XML of data from above site is upto date, You can update this list by changing content in this file for [UK](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L4), [US](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L9), [UN](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L14), [EU](https://github.com/akm14889/sdn-diff/blob/main/backend/env.js#L20)
 4. Make sure to replace this [file](https://github.com/akm14889/sdn-diff/blob/main/backend/data/currentPelicanList/list.csv), with the latest exported pelican data, please name that file as `list.csv` 
-5. Install Program dependencies 
+5. Install Program dependencies
+
+   1. Open CMD prompt, in windows press windows key + R
+   2. type cmd, press enter
+   3. Navigate to directory where you extracted this project using `cd`, once you are there navigate to `backend` directory
+```
+cd <path where you extracted/cloned this project>
+```
+for example:
+```
+cd c:\Users\Ananya\Desktop\sdn-diff-main\
+```
+once you are in project directory goto backend directory.
 ```
 cd backend
 ```
+Install dependencies of project
 ```
 npm install
 ```
+Run the program to generate diff file in CSV format.
 ```
 node index.js
 
 ```
+Get the update of program progress in console, after successful run, output file should be available here `backend\data\output\SDN_DIFF.csv`.
