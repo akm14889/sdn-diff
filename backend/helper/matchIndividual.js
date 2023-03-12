@@ -24,7 +24,10 @@ function stopPrintWait() {
     process.stdout.write('\r\r');
 }
 
-const oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
+let oPelicanData;
+(async function() {
+    oPelicanData = await fs.readFile(ENV.PARSED_PELICAN_FILE, "utf8");
+})();
 
 export async function missingPersonInUKList() {
     console.log("|    Getting missing entity/person from UK list   \u{1F973} \u{1F973}                      |");
@@ -46,7 +49,7 @@ export async function missingPersonInUKList() {
                     break;
                 }
                 let nameInUkList = "";
-                nameInUkList = updateName(nameInUkList, oSanctionedPersonName);
+                nameInUkList = GetFullName(nameInUkList, oSanctionedPersonName);
                 nameInUkList = nameInUkList.toLowerCase();
                 for(const oPerson of oPelicanData) {
                     const oPersonName = oPerson.Entity && oPerson.Entity.toLowerCase();
@@ -65,7 +68,7 @@ export async function missingPersonInUKList() {
                 oSanctionedPerson.Names.Name.NameType &&
                 oSanctionedPerson.Names.Name.NameType.toLowerCase() === "primary name") {
                 let nameInUkList = "";
-                nameInUkList = updateName(nameInUkList, oSanctionedPerson.Names.Name);
+                nameInUkList = GetFullName(nameInUkList, oSanctionedPerson.Names.Name);
                 nameInUkList = nameInUkList.toLowerCase();
                 for(const oPerson of oPelicanData) {
                     const oPersonName = oPerson.Entity && oPerson.Entity.toLowerCase();
@@ -80,7 +83,7 @@ export async function missingPersonInUKList() {
             diffData.push(oSanctionedPerson);
         }
     }
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     stopPrintWait();
     console.log("|    Diff size:            " + diffData.length + "                   \u{1F4D6} \u{1F4D6}                      |");
     console.log("|    Full List size:       " + oUKSDNData.length + "                   \u{1F4D5} \u{1F4D5}                      |");
@@ -141,7 +144,7 @@ export async function missingPersonInUsList() {
         }
     }
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     stopPrintWait();
     console.log("|    Diff size:            " + diffData.length + "                  \u{1F4D6} \u{1F4D6}                      |");
     console.log("|    Full List size:       " + oUSSDNData.length + "                  \u{1F4D5} \u{1F4D5}                      |");
@@ -189,7 +192,7 @@ export async function missingPersonInUnList() {
         }
     }
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     stopPrintWait();
     console.log("|    Diff size:            " + diffData.length + "                    \u{1F4D6} \u{1F4D6}                      |");
     console.log("|    Full List size:       " + oUNSDNData.length + "                    \u{1F4D5} \u{1F4D5}                      |");
@@ -242,7 +245,7 @@ export async  function missingPersonInEuList() {
         }
     }
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     stopPrintWait();
     console.log("|    Diff size:            " + diffData.length + "                   \u{1F4D6} \u{1F4D6}                      |");
     console.log("|    Full List size:       " + oEUSDNData.length + "                   \u{1F4D5} \u{1F4D5}                      |");
@@ -250,7 +253,7 @@ export async  function missingPersonInEuList() {
     console.log("|    Saved missing entity/person from EU list     \u{1F4BE} \u{1F4BE}                      |");
 }
 
-function updateName(currentName, oName) {
+export function GetFullName(currentName, oName) {
     function update(curName, NewPart) {
         if (curName) {
             curName += " " + NewPart;
