@@ -82,6 +82,10 @@ async function transformAndGetUkDiff() {
                 }
 
             }
+            personToAdd.Category = "";
+            if (sanctionedPerson.IndividualEntityShip) {
+                personToAdd.Category = sanctionedPerson.IndividualEntityShip;
+            }
         }
         if (personToAdd) {
             diffData.push(personToAdd);
@@ -113,9 +117,13 @@ async function transformAndGetUsDiff() {
                     personToAdd.DOB = sanctionedPerson.dateOfBirthList.dateOfBirthItem.dateOfBirth;
                 }
             }
-            if (personToAdd) {
-                diffData.push(personToAdd);
+            personToAdd.Category = "";
+            if (sanctionedPerson.sdnType) {
+                personToAdd.Category = sanctionedPerson.sdnType;
             }
+        }
+        if (personToAdd) {
+            diffData.push(personToAdd);
         }
     }
 }
@@ -157,8 +165,8 @@ async function transformAndGetUnDiff() {
                     personToAdd.DOB = sanctionedPerson.INDIVIDUAL_DATE_OF_BIRTH.DATE || sanctionedPerson.INDIVIDUAL_DATE_OF_BIRTH.YEAR;
                 }
             }
+            personToAdd.Category = "";
         }
-
         if (personToAdd) {
             diffData.push(personToAdd);
         }
@@ -222,6 +230,16 @@ async function transformAndGetEuDiff() {
                 personToAdd.DateAdded = sanctionedPerson.regulation["$"].publicationDate;
             }
             personToAdd.List = "EU";
+            personToAdd.Category = "";
+            if (sanctionedPerson &&
+                sanctionedPerson.subjectType &&
+                sanctionedPerson.subjectType["$"] &&
+                (sanctionedPerson.subjectType["$"].code ||
+                    sanctionedPerson.subjectType["$"].classificationCode)
+            ) {
+                personToAdd.Category = sanctionedPerson.subjectType["$"].code ||
+                    sanctionedPerson.subjectType["$"].classificationCode;
+            }
         }
         if (personToAdd) {
             diffData.push(personToAdd);
