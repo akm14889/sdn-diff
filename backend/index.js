@@ -1,5 +1,10 @@
 import { parserCSV, saveAndParseList } from "./helper/downloader.js"
-import { missingPersonInUKList, missingPersonInUsList, missingPersonInUnList } from "./helper/matchIndividual.js"
+import {
+    missingPersonInUKList,
+    missingPersonInUsList,
+    missingPersonInUnList,
+    missingPersonInEuList
+} from "./helper/matchIndividual.js"
 
 console.log("______________________________________________________________________________");
 const parserStatus = await parserCSV();
@@ -29,9 +34,13 @@ console.log("\n_________________________________________________________________
 const unDiffList = await missingPersonInUnList();
 console.log("______________________________________________________________________________");
 
-// console.log("\n______________________________________________________________________________");
-// const euStatus = await saveAndParseList("EU");
-// console.log("______________________________________________________________________________");
+console.log("\n______________________________________________________________________________");
+const euStatus = await saveAndParseList("EU");
+console.log("______________________________________________________________________________");
+
+console.log("\n______________________________________________________________________________");
+const euDiffList = await missingPersonInEuList();
+console.log("______________________________________________________________________________");
 
 console.log("\n\n");
 
