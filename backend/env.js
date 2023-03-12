@@ -23,4 +23,5 @@ export const ENV = {
         }
     },
     PELICAN_FILE: "./data/currentPelicanList/list.csv",
+    PARSED_PELICAN_FILE: "./data/currentPelicanList/parsedPelicanList.json"
 };
