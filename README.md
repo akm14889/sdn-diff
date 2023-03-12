@@ -44,4 +44,5 @@ Get the update of program progress in console, after successful run, output file
 
 ### Alternative way to run in cloud shell GCP:
 1. Open [Cloud Shell](https://shell.cloud.google.com/)
-2. 
+2. copy this [file](https://github.com/akm14889/sdn-diff/blob/main/cloudrun.sh) content and paste in google  console and press enter.
+3. Finally, download file and save.
