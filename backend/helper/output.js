@@ -26,7 +26,7 @@ export async function compileOutput() {
     //     .on('header', (header) => console.log(header))
     //     .on('line', (line) => console.log(line));
     console.log("|    Total Diff       "+ diffData.length + "                \u{1F4D6} \u{1F4D6}                              |");
-    console.log("|    Output Generated                     \u{1F4BE} \u{1F4BE}                              |");
+    console.log("|    Output Generated at : " + ENV.OUTPUT_FILE_CSV + "         \u{1F4BE} \u{1F4BE}                              |");
 }
 
 async function transformAndGetUkDiff() {
