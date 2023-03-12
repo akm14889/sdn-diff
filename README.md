@@ -41,3 +41,7 @@ node index.js
 
 ```
 Get the update of program progress in console, after successful run, output file should be available here `backend\data\output\SDN_DIFF.csv`.
+
+### Alternative way to run in cloud shell GCP:
+1. Open [Cloud Shell](https://shell.cloud.google.com/)
+2. 
