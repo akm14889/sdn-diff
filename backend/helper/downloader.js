@@ -54,7 +54,7 @@ export async function saveAndParseList(listSource) {
                 ignoreAttrs: false
             });
             await fs.writeFile( dataSource.FILE, JSON.stringify(result, null, 4), 'utf8');
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
             stopPrintWait();
             console.log("|    " + listSource + " sdn list parsed       \u{1F973} \u{1F973}                                          |");
         } catch (exp) {

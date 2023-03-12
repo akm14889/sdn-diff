@@ -23,5 +23,7 @@ export const ENV = {
         }
     },
     PELICAN_FILE: "./data/currentPelicanList/list.csv",
-    PARSED_PELICAN_FILE: "./data/currentPelicanList/parsedPelicanList.json"
+    PARSED_PELICAN_FILE: "./data/currentPelicanList/parsedPelicanList.json",
+    OUTPUT_FILE_JSON: "./data/output/SDN_DIFF.json",
+    OUTPUT_FILE_CSV: "./data/output/SDN_DIFF.csv"
 };
