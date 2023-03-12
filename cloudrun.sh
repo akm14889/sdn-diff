@@ -5,3 +5,4 @@ cd sdn-diff/backend/
 npm install
 node index.js
 dl ./data/output/SDN_DIFF.csv
+cd ~
